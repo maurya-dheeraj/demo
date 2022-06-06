@@ -1,0 +1,49 @@
+<div class="form-center">
+    <div class="login-form">
+    <form [formGroup]="loginForm" >
+
+        <div class="text-center mb-4">
+            <img src="assets/img/logo.png" alt="">  
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="text" class="form-control" name="user" formControlName="user" [ngClass]=" {'in-invalid':userValidation.user.errors && submitted }">
+          <div *ngIf="userValidation.user.errors && submitted">
+            <div *ngIf="userValidation.user.errors.required && submitted" style="color: red"> What the fuck KOMAL</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password"  formControlName="password">
+          <span *ngIf="userValidation.password && userValidation.password.invalid && userValidation.password.touched" class="validation" >Password should be Greater than 4 Character</span>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input"  id="check">
+          <label class="form-check-label" for="check">Check me out</label>
+        </div>
+
+        <div class="d-grid ">
+            <button  class="btn btn-primary"  (click)="loginUser()">Submit</button>
+          </div>
+      </form>
+      </div>
+</div>
+
+
+<h1>{{title | uppercase}} - THIS IS UPPER CASE</h1>
+<h1>{{title | lowercase}} -  this is lower case</h1>
+<h1>{{capString(title)}}</h1>
+<h1>{{today | date : 'medium'}}</h1>
+<h1 >{{dheeru| slice : 1 : 8}} - Slice for a String</h1>
+<h1 *ngFor="let item of fruit">{{item | slice : 2 : 4 | uppercase}} -  Slice for an Array</h1>
+<!-- <button (click)="getFruit(data)">click</button> -->
+<h4>{{user|json}} - To json format</h4>
+ <!-- fruit ="banana" -->
+
+ <h1>{{20| currency:'USD'}}</h1>
+ <h1>{{20| currency:'GBP'}}</h1>
+ <h1>{{20| currency:'INR'}}</h1>
+
+ <h1>{{"hello how are you" | titlecase}}</h1>
+
